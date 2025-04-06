@@ -10,6 +10,7 @@ const NavbarLogo = () => {
       <h1 className="text-white font-special font-extrabold text-xl sm:text-2xl md:hidden sm:block">
   SSH 
 </h1>
+{/* resume */}
 <a
     href="/images/syed-resume.pdf"
     target="_blank"
