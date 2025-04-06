@@ -11,7 +11,7 @@ const NavbarLogo = () => {
   SSH 
 </h1>
 <a
-    href="public\images\syed-resume.pdf"
+    href="/images/syed-resume.pdf"
     target="_blank"
     rel="noopener noreferrer"
     className="relative px-4 py-2 text-white font-semibold text-sm uppercase tracking-wide 

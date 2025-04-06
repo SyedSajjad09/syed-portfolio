@@ -13,17 +13,17 @@ const ContactMeRight = () => {
       <motion.div
         className="relative group w-[320px] h-[320px] rounded-[2.5rem] overflow-hidden bg-white/5 border border-white/5 border-t border-t-white/10 backdrop-blur-lg shadow-md hover:shadow-lg transition-all duration-500 hover:scale-105"
       >
-        {/* Bigger Image with less padding */}
+      
         <img
           src="/images/email-image.png"
           alt="email illustration"
           className="relative z-10 object-contain w-full h-full p-2"
         />
 
-        {/* Softer background gradient */}
+    
         <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-cyan-400 via-pink-400 to-yellow-300 opacity-5 blur-md group-hover:opacity-15 transition duration-700 z-0" />
 
-        {/* Smaller & lighter ping effect */}
+
         <div className="absolute top-1/3 left-1/3 w-12 h-12 bg-white opacity-5 rounded-full blur-xl animate-ping z-0" />
       </motion.div>
 
