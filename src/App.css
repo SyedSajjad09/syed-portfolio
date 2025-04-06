@@ -1,23 +1,31 @@
+/* Root container for better responsiveness */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Logo animation and enhancement */
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
+  filter: drop-shadow(0 0 1em rgba(255, 255, 255, 0.2));
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 2em #38bdf8);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #61dafb);
 }
 
+/* Logo rotation effect */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -27,16 +35,32 @@
   }
 }
 
+/* Apply animation to React logo */
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 15s linear;
   }
 }
 
+/* Card styling with glassmorphism effect */
 .card {
   padding: 2em;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Read-the-docs section styling */
 .read-the-docs {
-  color: #888;
+  color: #94a3b8;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
 }
+.read-the-docs:hover {
+  color: #f8fafc;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  transition: color 300ms ease-in-out, text-shadow 300ms ease-in-out;
+}
+
+

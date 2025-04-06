@@ -5,10 +5,12 @@ import SingleInfo from "./SingleInfo";
 
 const ContactInfo = () => {
   return (
-    <div className="flex flex-col gap-4">
-      <SingleInfo text="syedsajjadhussain014@gmail.com" Image={HiOutlineMail} />
-      <SingleInfo text="+91 7699507589" Image={FiPhone} />
-      <SingleInfo text="Asansol, West Bengal, India" Image={IoLocationOutline} />
+    <div className="w-full flex justify-center">
+      <div className="text-center space-y-3">
+        <SingleInfo text="syedsajjadhussain014@gmail.com" Image={HiOutlineMail} />
+        <SingleInfo text="+91 7699507589" Image={FiPhone} />
+        <SingleInfo text="Asansol, West Bengal, India" Image={IoLocationOutline} />
+      </div>
     </div>
   );
 };

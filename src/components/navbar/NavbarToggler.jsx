@@ -8,10 +8,12 @@ const NavbarToggler = () => {
   const setToggleMenu = () => {
     dispatch(toggleMenu());
   };
+
   return (
     <button
-      className="text-2xl p-3 border border-orange rounded-full"
       onClick={setToggleMenu}
+      aria-label="Toggle navigation menu"
+      className="flex items-center justify-center p-3 text-2xl text-orange-500 border-2 border-orange-500 rounded-full hover:bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-400 transition duration-200 ease-in-out"
     >
       <GiHamburgerMenu />
     </button>

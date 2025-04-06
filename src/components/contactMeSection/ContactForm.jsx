@@ -1,90 +1,104 @@
 import React, { useRef, useState, useCallback } from "react";
-import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const formRef = useRef();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
+  const [status, setStatus] = useState(null); // 'success' or 'error'
 
-  // Handlers optimized with useCallback
   const handleName = useCallback((e) => setName(e.target.value), []);
   const handleEmail = useCallback((e) => setEmail(e.target.value), []);
   const handleMessage = useCallback((e) => setMessage(e.target.value), []);
 
-  const sendEmail = useCallback(
-    (e) => {
+  const handleSubmit = useCallback(
+    async (e) => {
       e.preventDefault();
 
-      const templateParams = {
-        to_email: email, // The user's email (alex@gmail.com)
-        from_name: name, // The user's name (Alex)
-        from_email: email, // The user's email again (Alex@gmail.com)
-        message: message, // The message from the user
-      };
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("message", message);
 
-      emailjs
-        .send("service_4x2mroe", "template_vtody4b", templateParams, {
-          publicKey: "slNs-UZVP4KmdOWbt",
-        })
-        .then(() => {
+      try {
+        const response = await fetch("https://formspree.io/f/mblgpjyj", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+        });
+
+        if (response.ok) {
           setName("");
           setEmail("");
           setMessage("");
-          setShowPopup(true);
+          setStatus("success");
+        } else {
+          throw new Error("Form submission failed.");
+        }
+      } catch (err) {
+        console.error("Form error:", err);
+        setStatus("error");
+      }
 
-          // Hide popup after 3 seconds
-          setTimeout(() => setShowPopup(false), 3000);
-        })
-        .catch((error) => console.error("FAILED...", error.text));
+      setTimeout(() => setStatus(null), 3000);
     },
     [name, email, message]
   );
 
   return (
-    <div>
-      {/* Success Popup */}
-      {showPopup && (
-        <div className="fixed top-5 right-5 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg animate-fadeIn">
-          ✅ Message Sent Successfully!
-        </div>
-      )}
-
-      <form ref={formRef} onSubmit={sendEmail} className="flex flex-col gap-4">
+    <div className="w-full max-w-xl mx-auto px-4">
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4"
+      >
         <input
           type="text"
-          name="from_name"
+          name="name"
           placeholder="Your Name"
           required
-          className="h-12 rounded-lg bg-lightBrown px-2"
+          className="h-12 rounded-lg bg-lightBrown px-4 text-base placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan"
           value={name}
           onChange={handleName}
         />
         <input
           type="email"
-          name="from_email"
+          name="email"
           placeholder="Your Email"
           required
-          className="h-12 rounded-lg bg-lightBrown px-2"
+          className="h-12 rounded-lg bg-lightBrown px-4 text-base placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan"
           value={email}
           onChange={handleEmail}
         />
         <textarea
           name="message"
-          rows="9"
+          rows="6"
           placeholder="Message"
           required
-          className="rounded-lg bg-lightBrown p-2"
+          className="rounded-lg bg-lightBrown px-4 py-3 text-base placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan resize-none"
           value={message}
           onChange={handleMessage}
         />
         <button
           type="submit"
-          className="w-full rounded-lg border border-cyan text-white h-12 font-bold text-xl hover:bg-darkCyan bg-cyan transition-all duration-500"
+          className="w-full rounded-lg border border-cyan text-white h-12 font-semibold text-lg hover:bg-darkCyan bg-cyan transition-all duration-300"
         >
           Send
         </button>
+
+        {/* Message below button */}
+        {status === "success" && (
+          <p className="text-green-600 font-medium text-center">
+            ✅ Message sent successfully!
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-red-600 font-medium text-center">
+            ❌ Failed to send message. Please try again.
+          </p>
+        )}
       </form>
     </div>
   );

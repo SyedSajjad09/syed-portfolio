@@ -1,11 +1,10 @@
 const ContactText = () => {
   return (
-    <div>
-      <h2 className="text-orange text-3xl mb-4">Get In Touch</h2>
-      <p>
-      Feel free to connect
-      <br />
-      collaboration is just a few clicks away! 
+    <div className="w-full flex flex-col items-center text-center mb-8">
+      <h2 className="text-orange text-3xl font-bold mb-2">Get In Touch</h2>
+      <p className="text-lg text-gray-700 leading-relaxed">
+        Great connections spark great creations —<br />
+        reach out and let's start something meaningful.
       </p>
     </div>
   );
