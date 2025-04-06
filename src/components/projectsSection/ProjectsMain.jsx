@@ -32,9 +32,15 @@ const projects = [
     image: "/images/p4.png",
     link: "https://recipe-finder-mu-sable.vercel.app/",
   },
-  
-  
+  {
+    name: "Syed's Portfolio",
+    year: "2025",
+    align: "right", 
+    image: "/images/ssh-portfolio.png", 
+    link: "https://syed-sh-portfolio.vercel.app/",
+  },
 ];
+
 
 const ProjectsMain = () => {
   return (
