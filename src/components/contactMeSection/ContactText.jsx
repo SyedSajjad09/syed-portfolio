@@ -4,7 +4,7 @@ const ContactText = () => {
       <h2 className="text-orange text-3xl font-bold mb-2">Get In Touch</h2>
       <p className="text-lg text-gray-700 leading-relaxed">
         Great connections spark great creations —<br />
-        reach out and let's start something meaningful.
+        reach out to me and let's start something meaningful.
       </p>
     </div>
   );
