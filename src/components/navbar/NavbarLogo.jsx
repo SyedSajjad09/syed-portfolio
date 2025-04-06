@@ -1,17 +1,17 @@
 const NavbarLogo = () => {
   return (
     <div className="flex flex-col items-center">
-      {/* Full name for larger screens */}
+  
       <h1 className="text-white text-xl sm:hidden md:block">
         Syed Sajjad Hussain
       </h1>
 
-      {/* Short name for smaller screens */}
+  
       <h1 className="text-white font-special font-extrabold text-xl sm:text-2xl md:hidden sm:block">
   SSH 
 </h1>
 <a
-    href="public/images/Syesresume.pdf"
+    href="public\images\syed-resume.pdf"
     target="_blank"
     rel="noopener noreferrer"
     className="relative px-4 py-2 text-white font-semibold text-sm uppercase tracking-wide 
