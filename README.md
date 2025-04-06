@@ -8,11 +8,11 @@ A sleek, responsive developer portfolio built with React, Vite, and TailwindCSS 
 
 ##  About the Project
 
-This is my personal developer portfolio built to highlight my experience as a full-stack web developer and problem solver. It features a smooth, responsive design with animated transitions, a sectioned layout, and a fully functional contact form.
+This is my personal developer portfolio built to highlight my experience as a web developer and problem solver. It features a smooth, responsive design with animated transitions, a sectioned layout, and a fully functional contact form.
 
 Built from scratch using the latest frontend technologies, the site reflects both my technical abilities and design aesthetic.
 
----
+
 
 ##  Tech Stack
 
@@ -23,7 +23,7 @@ Built from scratch using the latest frontend technologies, the site reflects bot
 - **Icons & Effects**: React Icons, React Scroll, Typewriter Effect
 - **Deployment**: Vercel
 
----
+
 
 ##  Features
 
@@ -35,7 +35,7 @@ Built from scratch using the latest frontend technologies, the site reflects bot
 - 📨 Contact form powered by Formspree
 - 🌍 Hosted and deployed with Vercel
 
----
+
 
 ##  Installation & Setup
 
